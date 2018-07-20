@@ -418,7 +418,7 @@ static const CGFloat ZFPlayerControlViewAutoFadeOutTimeInterval = 0.25f;
     self.portraitControlView.hidden = observer.isFullScreen;
     self.landScapeControlView.hidden = !observer.isFullScreen;
     if (videoPlayer.isSmallFloatViewShow) {
-        self.floatControlView.hidden = YES;
+        self.floatControlView.hidden = observer.isFullScreen;
         self.portraitControlView.hidden = YES;
         if (observer.isFullScreen) {
             self.controlViewAppeared = NO;
@@ -463,7 +463,7 @@ static const CGFloat ZFPlayerControlViewAutoFadeOutTimeInterval = 0.25f;
 /// 列表滑动时视频view已经消失
 - (void)playerDidDisappearInScrollView:(ZFPlayerController *)videoPlayer {
     if (!self.player.stopWhileNotVisible && !videoPlayer.isFullScreen) {
-        self.floatControlView.hidden = YES;
+        self.floatControlView.hidden = NO;
         self.portraitControlView.hidden = YES;
     }
 }
